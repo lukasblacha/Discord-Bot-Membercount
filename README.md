@@ -6,7 +6,7 @@
 - [x] Custom display for joins and leaves
 - [x] Placeholders (User-Count, Servername, more on request)
 - [x] Custom Status 
-- [ ] Custom Status text
+- [x] Custom Status text
 
 
 ### Config Example
