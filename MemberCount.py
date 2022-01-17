@@ -25,7 +25,8 @@ if not os.path.exists(CONFIG_FILE):
     config.set("Settings", "BOT_PREFIX", "!")
     config.set("Settings", "OWNER_ID", "")
     config.set("Settings", "CHANNEL", "")
-    config.set("Settings", "STATUS", "Counting members... 🔄")
+    config.set("Settings", "STATUS", "dnd #online, idle, dnd")
+    config.set("Settings", "STATUSTEXT", "Counting members... 🔄")
     config.add_section("Messages")
     config.set("Messages", "# Available placeholders: {0} user-ammount | {1} servername", "")
     config.set("Messages", "Join", "「⏫」 {0} Members on {1}")
@@ -48,8 +49,11 @@ else:
     OWNER_ID = config.get("Settings", "OWNER_ID")
     CHANNEL = config.get("Settings", "Channel")
     STATUS = config.get("Settings", "Status")
+    STATUSTEXT = config.get("Settings", "Statustext")
     JOIN = config.get("Messages", "Join")
     LEAVE = config.get("Messages", "Leave")
+
+print(STATUS, STATUSTEXT)
 
 
 if __name__ == '__main__':
@@ -67,8 +71,9 @@ if __name__ == '__main__':
         print(
             f"https://discord.com/api/oauth2/authorize?client_id={client.user.id}&permissions=261993005047&scope=bot%20applications.commands")
         print("--------------------------------------------------")
-        game = discord.Game(STATUS)
-        await client.change_presence(status=discord.Status.dnd, activity=game)
+        status = discord.Status(STATUS)
+        game = discord.Game(STATUSTEXT)
+        await client.change_presence(status=status, activity=game)
 
 
     @client.event
