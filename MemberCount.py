@@ -5,7 +5,7 @@ import os
 
 version = 0.1
 print('##########################')
-print('# Discord MemberCount       #')
+print('# Discord MemberCount    #')
 print(f'# Version {version}            #')
 print('##########################')
 print('\n')
@@ -27,9 +27,9 @@ if not os.path.exists(CONFIG_FILE):
     config.set("Settings", "CHANNEL", "")
     config.set("Settings", "STATUS", "Counting members... 🔄")
     config.add_section("Messages")
-    config.set("Messages", "# Available placeholders: {0} user-ammount | {1} servername", " ")
-    config.set("Messages", "Join", "")
-    config.set("Messages", "Leave", "")
+    config.set("Messages", "# Available placeholders: {0} user-ammount | {1} servername", "")
+    config.set("Messages", "Join", "「⏫」 {0} Members on {1}")
+    config.set("Messages", "Leave", "「⏬」 {0} Members {1}")
     file = open(CONFIG_FILE, 'w')
     config.write(file)
     file.close()
